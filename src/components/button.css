@@ -1,0 +1,45 @@
+.btn {
+  width: 8rem;
+  height: 3rem;
+  border-radius: 10%;
+  background-color: transparent;
+  border: 2px solid #555;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 0 7px #000;
+}
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px #000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
