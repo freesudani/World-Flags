@@ -1,6 +1,6 @@
 .question-box {
   width: 45rem;
-  height: 25rem;
+  min-height: min-content;
   margin: 10rem auto auto auto;
   background-color: #fff;
   color: #000;
@@ -10,30 +10,32 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
 }
 
 .question-flag {
-  width: 7rem;
-  height: 3rem;
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .question-flag img {
-  width: 100%;
+  border-radius: 5px;
+  width: 17rem;
 }
 
 .question-option {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 3rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  grid-gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.9rem;
 }
 
 .question-option p {
   text-align: center;
   border: 1px solid #000;
+  width: 50%;
+  justify-self: center;
 }

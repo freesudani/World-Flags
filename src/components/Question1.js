@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { QuestionsList } from "../data/Q1data";
 import "./Question.css";
 import "./button.css";
 
@@ -8,12 +9,12 @@ const Question1Variant = {
   hidden: {
     opacity: 0,
     x: "-100vw",
-    y: "-15vw",
+    y: "-17vw",
   },
   visible: {
     opacity: 1,
     x: "-29vw",
-    y: "-15vw",
+    y: "-17vw",
     transition: {
       type: "spring",
       delay: 0.5,
@@ -35,13 +36,16 @@ export const Question1 = () => {
       exit="exit"
     >
       <div className="question-flag">
-        <img alt="photo" />
+        <img src={QuestionsList[0].image} alt="photo" />
+      </div>
+      <div className="question-heading">
+        <h1>Pick The Right Country's Flag</h1>
       </div>
       <div className="question-option">
-        <p>Option 1</p>
-        <p>Option 2</p>
-        <p>Option 3</p>
-        <p>Option 4</p>
+        <p>{QuestionsList[0].options[0]}</p>
+        <p>{QuestionsList[0].options[1]}</p>
+        <p>{QuestionsList[0].options[2]}</p>
+        <p>{QuestionsList[0].options[3]}</p>
       </div>
       <div className="button-container">
         <Link to="">
