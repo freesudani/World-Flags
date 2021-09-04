@@ -13,6 +13,11 @@
   padding: 0.5rem 1rem 1rem 1rem;
 }
 
+.show-score {
+  text-align: left;
+  font-size: 2rem;
+}
+
 .question-flag {
   display: block;
   margin-left: auto;

@@ -27,10 +27,22 @@ const Question1Variant = {
 };
 
 export const Question1 = () => {
-  const [answer, setAnswer] = useState(false);
-  const [wrong, setWrong] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showScore, setShowScore] = useState(true);
+  const [score, setScore] = useState(0);
 
-  const ChoosenOption = (answer || wrong) && !(answer && wrong);
+  const AnsweredQuestion = (IsitCorrect) => {
+    const nextQuestion = currentQuestion + 1;
+
+    if (IsitCorrect) {
+      setScore(score + 1);
+    }
+    if (nextQuestion < QuestionsList.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  };
 
   return (
     <motion.div
@@ -40,23 +52,40 @@ export const Question1 = () => {
       animate="visible"
       exit="exit"
     >
-      <div className="question-flag">
-        <img src={QuestionsList[0].image} alt="photo" />
+      <div className="show-score">
+        {showScore ? (
+          <div className="score-section">
+            {`You scored ${score} out of ${QuestionsList.length}`}
+          </div>
+        ) : (
+          <>// ... quiz question/answer markup</>
+        )}
       </div>
+      <div className="question-flag">
+        <img src={QuestionsList[currentQuestion].image} alt="photo" />
+      </div>
+
       <div className="question-heading">
         <h1>Pick The Right Country's Flag</h1>
       </div>
       <div className="question-option">
-        {QuestionsList[0].options.map((option, index) => {
-          <button key={index} className="question-option-paragraph">
-            {option.Answertext}
-          </button>;
+        {QuestionsList[currentQuestion].options.map((option, index) => {
+          return (
+            <button
+              key={index}
+              className="question-option-paragraph"
+              onClick={() => AnsweredQuestion(option.IsitCorrect)}
+            >
+              {option.Answertext}
+            </button>
+          );
         })}
       </div>
       <div className="button-container">
-        <Link to="">
-          <button className="btn">Proceed</button>
-        </Link>
+        <button className="btn" onClick={() => AnsweredQuestion()}>
+          Proceed
+        </button>
+
         <Link to="/">
           <button className="btn">Exit</button>
         </Link>
