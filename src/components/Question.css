@@ -33,7 +33,23 @@
   margin-bottom: 0.9rem;
 }
 
-.question-option p {
+.question-option-paragraph {
+  text-align: center;
+  border: 1px solid #000;
+  width: 50%;
+  justify-self: center;
+}
+
+.correct-choice {
+  background-color: green;
+  text-align: center;
+  border: 1px solid #000;
+  width: 50%;
+  justify-self: center;
+}
+
+.uncorrect-choice {
+  background-color: red;
   text-align: center;
   border: 1px solid #000;
   width: 50%;

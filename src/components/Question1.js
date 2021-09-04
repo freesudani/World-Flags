@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { QuestionsList } from "../data/Q1data";
@@ -27,6 +27,11 @@ const Question1Variant = {
 };
 
 export const Question1 = () => {
+  const [answer, setAnswer] = useState(false);
+  const [wrong, setWrong] = useState(false);
+
+  const ChoosenOption = (answer || wrong) && !(answer && wrong);
+
   return (
     <motion.div
       className="question-box"
@@ -42,10 +47,11 @@ export const Question1 = () => {
         <h1>Pick The Right Country's Flag</h1>
       </div>
       <div className="question-option">
-        <p>{QuestionsList[0].options[0]}</p>
-        <p>{QuestionsList[0].options[1]}</p>
-        <p>{QuestionsList[0].options[2]}</p>
-        <p>{QuestionsList[0].options[3]}</p>
+        {QuestionsList[0].options.map((option, index) => {
+          <button key={index} className="question-option-paragraph">
+            {option.Answertext}
+          </button>;
+        })}
       </div>
       <div className="button-container">
         <Link to="">

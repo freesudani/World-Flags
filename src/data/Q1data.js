@@ -5,9 +5,49 @@ import MexicoFlag from "../images/Flag-Mexico.jpg";
 import NorwayFlag from "../images/Flag-Norway.jpg";
 
 export const QuestionsList = [
-  { image: BrazilFlag, options: ["Brazil", "Germany", "Oman", "Russia"] },
-  { image: IndiaFlag, options: ["USA", "SaudiArabia", "India", "Sirilanka"] },
-  { image: JapanFlag, options: ["China", "Japan", "Oman", "Russia"] },
-  { image: MexicoFlag, options: ["Jamaica", "Canada", "Bahrain", "Mexico"] },
-  { image: NorwayFlag, options: ["Norway", "Sweden", "Denmark", "Korea"] },
+  {
+    image: BrazilFlag,
+    options: [
+      { Answertext: "Brazil", IsitCorrect: true },
+      { Answertext: "Germany", IsitCorrect: false },
+      { Answertext: "Oman", IsitCorrect: false },
+      { Answertext: "Russia", IsitCorrect: false },
+    ],
+  },
+  {
+    image: IndiaFlag,
+    options: [
+      { Answertext: "USA", IsitCorrect: false },
+      { Answertext: "Saudi Arabia", IsitCorrect: false },
+      { Answertext: "India", IsitCorrect: true },
+      { Answertext: "Sirilanka", IsitCorrect: false },
+    ],
+  },
+  {
+    image: JapanFlag,
+    options: [
+      { Answertext: "China", IsitCorrect: false },
+      { Answertext: "Japan", IsitCorrect: true },
+      { Answertext: "Oman", IsitCorrect: false },
+      { Answertext: "Russia", IsitCorrect: false },
+    ],
+  },
+  {
+    image: MexicoFlag,
+    options: [
+      { Answertext: "Jamaica", IsitCorrect: false },
+      { Answertext: "Canada", IsitCorrect: false },
+      { Answertext: "Bahrain", IsitCorrect: false },
+      { Answertext: "Mexico", IsitCorrect: true },
+    ],
+  },
+  {
+    image: NorwayFlag,
+    options: [
+      { Answertext: "Norway", IsitCorrect: true },
+      { Answertext: "Sweden", IsitCorrect: false },
+      { Answertext: "Denmark", IsitCorrect: false },
+      { Answertext: "Korea", IsitCorrect: false },
+    ],
+  },
 ];
