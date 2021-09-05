@@ -41,7 +41,7 @@ export const Instructions = () => {
         <p>3. You can Exit the Quize at any stage</p>
       </div>
       <div className="button-container">
-        <Link to="/Question1">
+        <Link to="/Question">
           <button className="btn">Proceed</button>
         </Link>
 

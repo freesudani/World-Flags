@@ -3,7 +3,7 @@ import { Starting } from "./components/Starting";
 import { Instructions } from "./components/Instructions";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Question1 } from "./components/Question1";
+import { Question } from "./components/Question";
 
 function App() {
   const location = useLocation();
@@ -17,8 +17,8 @@ function App() {
           <Route path="/instructions">
             <Instructions />
           </Route>
-          <Route path="/Question1">
-            <Question1 />
+          <Route path="/Question">
+            <Question />
           </Route>
         </Switch>
       </AnimatePresence>

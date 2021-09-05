@@ -1,6 +1,6 @@
 .question-box {
   width: 45rem;
-  min-height: min-content;
+  min-height: 30rem;
   margin: 10rem auto auto auto;
   background-color: #fff;
   color: #000;
@@ -15,7 +15,7 @@
 
 .show-score {
   text-align: left;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .question-flag {
@@ -26,7 +26,10 @@
 
 .question-flag img {
   border-radius: 5px;
-  width: 17rem;
+  height: 10rem;
+  width: 20rem;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 4px 5px #000;
 }
 
 .question-option {
@@ -40,16 +43,23 @@
 
 .question-option-paragraph {
   text-align: center;
-  border: 1px solid #000;
-  width: 50%;
+  font-size: 1.5rem;
+  border: 2px solid #000;
+  background-color: white;
+  width: 70%;
+  height: 3rem;
+  border-radius: 5px;
   justify-self: center;
 }
 
 .correct-choice {
   background-color: green;
   text-align: center;
-  border: 1px solid #000;
-  width: 50%;
+  font-size: 1.5rem;
+  border: 2px solid #000;
+  width: 70%;
+  height: 3rem;
+  border-radius: 5px;
   justify-self: center;
 }
 
