@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 
 function QuestionOption(props) {
-  const [myColor, setMyColor] = useState(props.colors.default);
+  const [myColor, setMyColor] = useState("question-option-paragraph");
 
   const changeColor = () => {
     if (props.correctness) {
-      setMyColor(props.colors.good);
+      setMyColor("correct-choice");
     } else {
-      setMyColor(props.colors.bad);
+      setMyColor("uncorrect-choice");
     }
   };
 
   useEffect(() => {
     if (!props.haveAnswered) {
-      setMyColor(props.colors.default);
+      setMyColor("question-option-paragraph");
     }
   }, [props.haveAnswered]);
 
   return (
     <button
-      className={`${props.defaultClass} bg-${myColor}-500 hover:bg-${myColor}-700`}
+      className={`${myColor}`}
       onClick={() => {
         props.parentFunction(props.correctness);
         changeColor();

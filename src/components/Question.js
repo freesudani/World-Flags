@@ -29,7 +29,7 @@ const Question1Variant = {
 
 export const Question = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showScore, setShowScore] = useState(true);
+  const [showScore, setShowScore] = useState(false);
   const [haveAnswered, setHaveAnswered] = useState(false);
   const [score, setScore] = useState(0);
 
@@ -64,7 +64,11 @@ export const Question = () => {
             {`You scored ${score} out of ${QuestionsList.length}`}
           </div>
         ) : (
-          <>// ... quiz question/answer markup</>
+          <div className="score-section">
+            {`You're in question #${currentQuestion + 1} out of ${
+              QuestionsList.length
+            }`}
+          </div>
         )}
       </div>
       <motion.div className="question-flag">
@@ -79,14 +83,9 @@ export const Question = () => {
           return (
             <QuestionOption
               key={index}
-              corsrectnes={option.IsitCorrect}
+              correctness={option.IsitCorrect}
               parentFunction={AnsweredQuestion}
-              defaultClass="question-option-paragraph text-white font-bold py-2 px-4 rounded"
-              colors={{
-                default: "blue",
-                good: "green",
-                bad: "red",
-              }}
+              defaultClass="question-option-paragraph"
               haveAnswered={haveAnswered}
               text={option.Answertext}
             />
@@ -94,14 +93,16 @@ export const Question = () => {
         })}
       </div>
       <div className="button-container">
-        <button className="btn" onClick={AnsweredQuestion}>
-          Proceed
-        </button>
-
         <Link to="/">
           <button className="btn">Exit</button>
         </Link>
       </div>
+      {currentQuestion + 2 === QuestionsList.length && (
+        <div className="final-score">
+          <h1>Congratulations</h1>
+          <p>{`You scored ${score} out of ${QuestionsList.length}`} </p>
+        </div>
+      )}
     </motion.div>
   );
 };

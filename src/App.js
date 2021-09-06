@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { Starting } from "./components/Starting";
 import { Instructions } from "./components/Instructions";
@@ -7,6 +8,7 @@ import { Question } from "./components/Question";
 
 function App() {
   const location = useLocation();
+
   return (
     <div className="App">
       <AnimatePresence exitBeforeEnter>
