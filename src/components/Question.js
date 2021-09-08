@@ -27,7 +27,7 @@ const Question1Variant = {
   },
 };
 
-export const Question = () => {
+export const Question = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [haveAnswered, setHaveAnswered] = useState(false);
@@ -96,13 +96,19 @@ export const Question = () => {
         <Link to="/">
           <button className="btn">Exit</button>
         </Link>
+        {showScore && (
+          <Link to="/finalscore">
+            <button
+              className="btn"
+              onClick={(score) => {
+                props.gettingfs(score);
+              }}
+            >
+              Show Score
+            </button>
+          </Link>
+        )}
       </div>
-      {currentQuestion + 2 === QuestionsList.length && (
-        <div className="final-score">
-          <h1>Congratulations</h1>
-          <p>{`You scored ${score} out of ${QuestionsList.length}`} </p>
-        </div>
-      )}
     </motion.div>
   );
 };
