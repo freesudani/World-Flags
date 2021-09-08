@@ -5,6 +5,7 @@ import { QuestionsList } from "../data/Q1data";
 import QuestionOption from "./QuestionOption";
 import "./Question.css";
 import "./button.css";
+import transitionVariants from "./transitionVariants";
 
 const Question1Variant = {
   hidden: {
@@ -31,14 +32,13 @@ export const Question = (props) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [haveAnswered, setHaveAnswered] = useState(false);
-  const [score, setScore] = useState(0);
 
   const AnsweredQuestion = (IsitCorrect) => {
     setHaveAnswered(true);
     const nextQuestion = currentQuestion + 1;
 
     if (IsitCorrect) {
-      setScore(score + 1);
+      props.setScore(props.score + 1);
     }
     setTimeout(() => {
       if (nextQuestion < QuestionsList.length) {
@@ -52,24 +52,18 @@ export const Question = (props) => {
 
   return (
     <motion.div
-      className="question-box"
-      variants={Question1Variant}
+      className="question-box modal"
+      variants={transitionVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
     >
       <div className="show-score">
-        {showScore ? (
-          <div className="score-section">
-            {`You scored ${score} out of ${QuestionsList.length}`}
-          </div>
-        ) : (
-          <div className="score-section">
-            {`You're in question #${currentQuestion + 1} out of ${
-              QuestionsList.length
-            }`}
-          </div>
-        )}
+        <div className="score-section">
+          {`You're in question #${currentQuestion + 1} out of ${
+            QuestionsList.length
+          }`}
+        </div>
       </div>
       <motion.div className="question-flag">
         <img src={QuestionsList[currentQuestion].image} alt="photo" />
@@ -100,8 +94,8 @@ export const Question = (props) => {
           <Link to="/finalscore">
             <button
               className="btn"
-              onClick={(score) => {
-                props.gettingfs(score);
+              onClick={() => {
+                props.gettingfs();
               }}
             >
               Show Score

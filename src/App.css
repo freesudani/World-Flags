@@ -1,11 +1,23 @@
+body {
+  margin: 0;
+}
 .App {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-image: url(../src/images/pexels-pixabay-41949.jpg);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  transition: 200ms all ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-position: center;
   background-size: cover;
   font-family: "Hind", sans-serif;
+}
+.modal {
+  text-align: center;
+  background-color: #fff;
+  color: #000;
 }

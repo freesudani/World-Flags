@@ -9,9 +9,10 @@ import FinalScore from "./components/FinalScore";
 
 function App() {
   const location = useLocation();
+  const [score, setScore] = useState(0);
 
-  const gettingfs = (goal) => {
-    let result = goal;
+  const gettingfs = (score) => {
+    let result = score;
     return result;
   };
 
@@ -26,7 +27,7 @@ function App() {
             <Instructions />
           </Route>
           <Route path="/Question">
-            <Question gettingfs={gettingfs} />
+            <Question gettingfs={gettingfs} score={score} setScore={setScore} />
           </Route>
           <Route path="/finalscore">
             <FinalScore gettingfs={gettingfs} />

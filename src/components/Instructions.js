@@ -3,36 +3,16 @@ import "./Instructions.css";
 import "./button.css";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-const InstructionsVariant = {
-  hidden: {
-    opacity: 0,
-    x: "-100vw",
-    y: "-10vw",
-  },
-  visible: {
-    opacity: 1,
-    x: "-22vw",
-    y: "-10vw",
-    transition: {
-      type: "spring",
-      delay: 0.5,
-    },
-  },
-  exit: {
-    x: "-100vw",
-    transition: { ease: "easeInOut" },
-  },
-};
+import transitionVariants from "./transitionVariants";
 
 export const Instructions = () => {
   return (
     <motion.div
-      className="instructions-box"
-      variants={InstructionsVariant}
+      className="instructions-box modal"
+      variants={transitionVariants}
       initial="hidden"
       animate="visible"
-      exit="exit"
+      exit="hidden"
     >
       <h1>Please Read Below Instructions</h1>
       <div>

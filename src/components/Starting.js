@@ -28,7 +28,7 @@ const StartingVariant = {
 export const Starting = () => {
   return (
     <motion.div
-      className="starting-box"
+      className="starting-box modal"
       variants={StartingVariant}
       initial="hidden"
       animate="visible"

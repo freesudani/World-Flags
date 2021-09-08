@@ -1,21 +1,8 @@
 .question-box {
   width: 45rem;
-  min-height: 30rem;
-  margin: 10rem auto auto auto;
-  background-color: #fff;
-  color: #000;
+  min-height: min-content;
   border-radius: 5px;
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
   padding: 0.5rem 1rem 1rem 1rem;
-}
-
-.show-score {
-  text-align: left;
-  font-size: 1rem;
 }
 
 .question-flag {
@@ -26,10 +13,9 @@
 
 .question-flag img {
   border-radius: 5px;
-  height: 10rem;
-  width: 20rem;
-  border: 2px solid #000;
-  box-shadow: 5px 5px 4px 5px #000;
+  width: 17rem;
+  height: 12rem;
+  box-shadow: 10px 10px 8px #888888;
 }
 
 .question-option {
@@ -43,41 +29,27 @@
 
 .question-option-paragraph {
   text-align: center;
-  font-size: 1.5rem;
   border: 2px solid #000;
   background-color: white;
-  width: 70%;
-  height: 3rem;
-  border-radius: 5px;
+  width: 50%;
+  height: 2.5rem;
   justify-self: center;
+  border-radius: 5px;
 }
 
 .correct-choice {
   background-color: green;
   text-align: center;
-  font-size: 1.5rem;
-  border: 2px solid #000;
-  width: 70%;
-  height: 3rem;
-  border-radius: 5px;
+  border: 1px solid #000;
+  width: 50%;
+
   justify-self: center;
 }
 
 .uncorrect-choice {
   background-color: red;
   text-align: center;
-  font-size: 1.5rem;
-  border: 2px solid #000;
-  width: 70%;
-  height: 3rem;
-  border-radius: 5px;
+  border: 1px solid #000;
+  width: 50%;
   justify-self: center;
-}
-
-.final-score {
-  width: 100vw;
-  height: 100vh;
-  z-index: 2;
-  background-color: white;
-  text-align: center;
 }
