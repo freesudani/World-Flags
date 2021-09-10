@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { QuestionsList } from "../data/Q1data";
 import "./FinalScore.css";
 
@@ -29,7 +30,7 @@ const FinalScoreVariant = {
   },
 };
 
-const FinalScore = ({ gettingfs }) => {
+const FinalScore = ({ score, setScore }) => {
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -54,9 +55,14 @@ const FinalScore = ({ gettingfs }) => {
         animate="visible"
         exit="exit"
       >
-        <p>
-          {`You scored ${gettingfs.result} out of ${QuestionsList.length}`}{" "}
-        </p>
+        <p>{`You scored ${score} out of ${QuestionsList.length}`} </p>
+        <div className="button-container">
+          <Link to="/">
+            <button className="btn" onClick={() => setScore(0)}>
+              Exit
+            </button>
+          </Link>
+        </div>
       </motion.div>
     </>
   );
