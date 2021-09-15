@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-/* import { QuestionsList } from "../data/Q1data"; */
+import { QuestionsList } from "../data/Q1data";
 import QuestionOption from "./QuestionOption";
 import "./Question.css";
 import "./button.css";
@@ -26,7 +26,7 @@ export const Question = (props) => {
         setShowScore(true);
       }
       setHaveAnswered(false);
-    }, 500);
+    }, 50);
   };
 
   return (
@@ -44,31 +44,40 @@ export const Question = (props) => {
           }`}
         </div>
       </div>
-      <motion.div className="question-flag">
-        <img src={props.QuestionsList[currentQuestion].image} alt="photo" />
-      </motion.div>
-
-      <div className="question-heading">
-        <h1>Pick The Right Country's Flag</h1>
-      </div>
-      <div className="question-option">
-        {props.QuestionsList[currentQuestion].options.map((option, index) => {
-          return (
-            <QuestionOption
-              key={index}
-              correctness={option.IsitCorrect}
-              parentFunction={AnsweredQuestion}
-              defaultClass="question-option-paragraph"
-              haveAnswered={haveAnswered}
-              text={option.Answertext}
-            />
-          );
-        })}
-      </div>
+      {!showScore && (
+        <motion.div className="question-flag">
+          <img src={props.QuestionsList[currentQuestion].image} alt="photo" />
+        </motion.div>
+      )}
+      {!showScore ? (
+        <div className="question-heading">
+          <h1>Pick The Right Country's Flag</h1>
+        </div>
+      ) : (
+        <p> Questions finished</p>
+      )}
+      {!showScore && (
+        <div className="question-option">
+          {props.QuestionsList[currentQuestion].options.map((option, index) => {
+            return (
+              <QuestionOption
+                key={index}
+                correctness={option.IsitCorrect}
+                parentFunction={AnsweredQuestion}
+                defaultClass="question-option-paragraph"
+                haveAnswered={haveAnswered}
+                text={option.Answertext}
+              />
+            );
+          })}
+        </div>
+      )}
       <div className="button-container">
-        <Link to="/">
-          <button className="btn">Exit</button>
-        </Link>
+        {!showScore && (
+          <Link to="/">
+            <button className="btn">Exit</button>
+          </Link>
+        )}
         {showScore && (
           <Link to="/finalscore">
             <button className="btn">Show Score</button>
